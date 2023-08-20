@@ -57,7 +57,7 @@ export default function Register() {
       formData.append("profile",dp.current?.files[0]);
       formData.append("resume",resume.current?.files[0]?resume.current?.files[0]:false);
       
-      const req = await fetch(`${process.env.REACT_APP_ORIGIN}/${owner?`owner`:`seeker`}/register`, {
+      const req = await fetch(`${process.env.REACT_APP_ORIGIN}${owner?`owner`:`seeker`}/register`, {
         method: "POST",
         mode: "cors",
         headers: {

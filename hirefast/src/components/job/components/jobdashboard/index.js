@@ -34,7 +34,7 @@ export default function JobDashBoard() {
         }
       })
       .finally(() => setLoading(false));
-    fetch(process.env.REACT_APP_ORIGIN+"/owner/job/details?id=" + id, {
+    fetch(process.env.REACT_APP_ORIGIN+"owner/job/details?id=" + id, {
       method: "GET",
       mode: "cors",
       credentials: "include",
@@ -60,7 +60,7 @@ export default function JobDashBoard() {
   };
   const handleActions = (uid, method) => {
     setLoading(true);
-    fetch(process.env.REACT_APP_ORIGIN+"/owner/candidate", {
+    fetch(process.env.REACT_APP_ORIGIN+"owner/candidate", {
       method: "post",
       mode: "cors",
       credentials: "include",

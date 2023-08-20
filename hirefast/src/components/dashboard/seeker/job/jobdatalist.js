@@ -15,7 +15,7 @@ export default function JobDataList({ title, data, id }) {
     const helper = async () => {
       try {
         const data = await fetch(
-          process.env.REACT_APP_ORIGIN+"/seeker/joblist/applications/list",
+          process.env.REACT_APP_ORIGIN+"seeker/joblist/applications/list",
           {
             method: "post",
             mode: "cors",
@@ -46,7 +46,7 @@ export default function JobDataList({ title, data, id }) {
     setLoading(true);
     try {
       const data = await fetch(
-        process.env.REACT_APP_ORIGIN+"/seeker/joblist/applications",
+        process.env.REACT_APP_ORIGIN+"seeker/joblist/applications",
         {
           method: "post",
           mode: "cors",

@@ -31,7 +31,7 @@ export default function RightSide({ right }) {
   }
   const logoutHandler = () => {
     setMainLoading(true);
-    fetch(process.env.REACT_APP_ORIGIN+"/logout", {
+    fetch(process.env.REACT_APP_ORIGIN+"logout", {
       method: "post",
       mode: "cors",
       credentials: "include",
