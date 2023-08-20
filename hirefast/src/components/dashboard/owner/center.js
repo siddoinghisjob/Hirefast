@@ -24,7 +24,7 @@ export default function Center() {
     setLoader(true)
     setUser(user=>context.state);
     
-    fetch("http://localhost:1000/owner/job/search?search="+search, {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/job/search?search="+search, {
           method: "GET",
           mode: "cors",
           credentials:'include',

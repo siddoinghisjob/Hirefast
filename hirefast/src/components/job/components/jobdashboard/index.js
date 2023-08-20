@@ -16,12 +16,12 @@ export default function JobDashBoard() {
   const { id } = useParams();
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:1000/owner/candidate?jid=" + id, {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/candidate?jid=" + id, {
       method: "GET",
       mode: "cors",
       credentials: "include",
       headers: {
-        "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
+        "Access-Control-Allow-Origin":process.env.REACT_APP_ORIGIN,
         "Content-Type": "application/json",
       },
     })
@@ -34,7 +34,7 @@ export default function JobDashBoard() {
         }
       })
       .finally(() => setLoading(false));
-    fetch("http://localhost:1000/owner/job/details?id=" + id, {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/job/details?id=" + id, {
       method: "GET",
       mode: "cors",
       credentials: "include",
@@ -60,7 +60,7 @@ export default function JobDashBoard() {
   };
   const handleActions = (uid, method) => {
     setLoading(true);
-    fetch("http://localhost:1000/owner/candidate", {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/candidate", {
       method: "post",
       mode: "cors",
       credentials: "include",

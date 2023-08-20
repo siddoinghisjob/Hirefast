@@ -23,7 +23,7 @@ export default function SeekerProfile() {
   const handleSubmit = async () => {
     try {
       setDescLoading(true);
-      const res = await fetch("http://localhost:1000/seeker/profile", {
+      const res = await fetch(process.env.REACT_APP_ORIGIN+"/seeker/profile", {
         body: JSON.stringify({ desc: desc }),
         method: "put",
         mode: "cors",

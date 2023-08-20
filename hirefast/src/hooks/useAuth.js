@@ -4,7 +4,7 @@ export default function useAuth() {
   const [state, setState] = useState({ success: null });
 
   useEffect(() => {
-    fetch("http://localhost:1000/auth", {
+    fetch(process.env.REACT_APP_ORIGIN+"/auth", {
       method: "POST",
       mode: "cors",
       headers: {

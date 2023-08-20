@@ -23,7 +23,7 @@ export default function Login() {
   useEffect(() => {
     if (submit !== null) {
       setMsg();
-      fetch(`http://localhost:1000/${role}/login`, {
+      fetch(`${process.env.REACT_APP_ORIGIN}/${role}/login`, {
         method: "POST",
         mode: "cors",
         credentials: "include",

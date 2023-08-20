@@ -9,7 +9,7 @@ export default function Listing() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:1000/owner/job/list", {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/job/list", {
       method: "POST",
       mode: "cors",
       headers: {
