@@ -9,11 +9,11 @@ const app = express();
 app.use(helmet());
 app.use(
 	cors({
-		origin: process.env.origin,
+		origin: `"${process.env.origin}"`,
 		credentials: true,
 	})
 );
-app.options('*', cors())
+app.options('*', cors());
 
 app.use(fileUpload());
 app.use(express.json());
