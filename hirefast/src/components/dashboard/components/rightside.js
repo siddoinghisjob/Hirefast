@@ -42,7 +42,7 @@ export default function RightSide({ right }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) window.location.href = "/login";
+        if (data.success) window.location.href = "https://hirefast-dbcb3.web.app";
       })
       .catch((err) => console.log(err))
       .finally(() => setMainLoading(false));
