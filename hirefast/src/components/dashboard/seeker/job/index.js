@@ -19,7 +19,7 @@ export default function SeekerJob() {
           mode: "cors",
           credentials: "include",
           headers: {
-            "Access-Control-Allow-Origin": "http://localhost:1000",
+            "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
             "Content-Type": "application/json",
           },
         });
@@ -50,7 +50,7 @@ export default function SeekerJob() {
             mode: "cors",
             credentials: "include",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:1000",
+              "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
               "Content-Type": "application/json",
             },
           }

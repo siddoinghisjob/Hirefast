@@ -17,12 +17,12 @@ module.exports = async (req, res) => {
 
   req.files.profile.mv(logoPath, function (err) {
     if (err)
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         msg: ["Logo was not provided"],
       });
   });
   const util = await insertIntoOwner(req.body, logoPath);
-  if (!util) return res.status(400).json({ success: false, message: "Yesh" });
+  if (!util) res.status(400).json({ success: false, message: "Yesh" });
   res.status(200).json({ success: true });
 };

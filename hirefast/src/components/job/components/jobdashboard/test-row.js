@@ -10,7 +10,7 @@ export default function TestRow(props) {
       mode: "cors",
       credentials: "include",
       headers: {
-        "Access-Control-Allow-Origin": "http://localhost:1000",
+        "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
         "Content-Type": "application/json",
       },
       body:JSON.stringify({

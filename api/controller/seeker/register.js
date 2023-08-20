@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
 
   req.files.resume.mv(resumePath, function (err) {
     if (err)
-      return res.status(422).json({
+      res.status(422).json({
         success: false,
         msg: ["Resume was not provided"],
       });
@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
 
   req.files.profile.mv(profPath, function (err) {
     if (err)
-      return res.status(422).json({
+      res.status(422).json({
         success: false,
         msg: ["Profile picture was not provided"],
       });

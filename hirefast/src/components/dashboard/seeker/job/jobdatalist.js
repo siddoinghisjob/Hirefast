@@ -20,7 +20,7 @@ export default function JobDataList({ title, data, id }) {
             method: "post",
             mode: "cors",
             headers: {
-              "Access-Control-Allow-Origin": "http://localhost:1000",
+              "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ jid: id }),
@@ -51,7 +51,7 @@ export default function JobDataList({ title, data, id }) {
           method: "post",
           mode: "cors",
           headers: {
-            "Access-Control-Allow-Origin": "http://localhost:1000",
+            "Access-Control-Allow-Origin": process.env.REACT_APP_ORIGIN,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ jid: id, resume: user?.resume }),
@@ -81,7 +81,7 @@ export default function JobDataList({ title, data, id }) {
         >
           {status === 0 && !msg && <>Apply</>}
           {status === -1 && <>Rejected</>}
-          {(msg && status !== 1) && <>Applied</>}
+          {(msg && status !== 1 && status !== -1) && <>Applied</>}
           {(status === 1) && <>Hired</>}
         </button>
       </div>
