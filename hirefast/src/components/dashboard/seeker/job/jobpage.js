@@ -28,7 +28,7 @@ export default function SeekerJobPage() {
       setLoader(true);
       try {
         const query = await fetch(
-          process.env.REACT_APP_ORIGIN+"seeker/joblist/" + id,
+          process.env.REACT_APP_ORIGIN+"/seeker/joblist/" + id,
           {
             method: "GET",
             mode: "cors",

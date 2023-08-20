@@ -5,7 +5,7 @@ export default function TestRow(props) {
   const [msg,setMsg] = useState("");
   
   useEffect(()=>{
-    fetch(process.env.REACT_APP_ORIGIN+"owner/test/select",{
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/test/select",{
       method:"POST",
       mode: "cors",
       credentials: "include",

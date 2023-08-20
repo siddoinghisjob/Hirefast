@@ -6,7 +6,7 @@ export default function Yellow(props) {
   const isDel = !props.hasOwnProperty("delBool");
   const refMain = useRef();
   const helper = () => {
-    fetch(process.env.REACT_APP_ORIGIN+"owner/job/list", {
+    fetch(process.env.REACT_APP_ORIGIN+"/owner/job/list", {
       method: "delete",
       mode: "cors",
       headers: {

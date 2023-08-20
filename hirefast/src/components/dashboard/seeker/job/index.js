@@ -14,7 +14,7 @@ export default function SeekerJob() {
     const helper = async () => {
       setLoader(true);
       try {
-        const size = await fetch(process.env.REACT_APP_ORIGIN+"seeker/joblist/size", {
+        const size = await fetch(process.env.REACT_APP_ORIGIN+"/seeker/joblist/size", {
           method: "GET",
           mode: "cors",
           credentials: "include",
@@ -44,7 +44,7 @@ export default function SeekerJob() {
     const util = async () => {
       try {
         const list = await fetch(
-          process.env.REACT_APP_ORIGIN+"seeker/joblist?search="+search+"&size=" + size,
+          process.env.REACT_APP_ORIGIN+"/seeker/joblist?search="+search+"&size=" + size,
           {
             method: "GET",
             mode: "cors",
