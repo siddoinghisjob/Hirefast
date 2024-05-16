@@ -9,9 +9,7 @@ export default function OwnerDashboard() {
       <div className="md:grid bg-dashPrime md:h-screen md:overflow-hidden md:grid-cols-123 flex flex-col min-h-screen justify-between w-full">
         <Leftside current={0} setRight={setRight} right={right}/>
         <Center />
-        <div className="w-full h-full">
-          <RightSide right={right}/>
-        </div>
+        <RightSide right={right}/>
       </div>
   );
 }

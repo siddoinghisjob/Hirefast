@@ -14,8 +14,7 @@ export default function Email() {
             </span>
           </div>
           <span>
-            Check your <u className=" underline">mail inbox</u> and verify your
-            account by clicking on the activation link.
+            Login to <u className=" underline">your account</u> by clicking <a href="login">here</a>
           </span>
           <span className="font-medium bg-cyan-50 rounded-lg p-2 py-1 text-cyan-800 border-2 border-cyan-800">
             If not found then check you spam folder.

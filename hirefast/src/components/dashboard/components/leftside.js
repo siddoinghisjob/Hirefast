@@ -67,13 +67,11 @@ export default function Leftside({current,setRight,right}) {
         <>
           <Selecter link={"/owner/dashboard"} current={current===0?true:false} name="HOME" />
           <Selecter link={"/owner/joblist"} current={current===1?true:false} name="POST JOB" />
-          <Selecter link={"/owner/profile"} current={current===2?true:false} name="PROFILE" />
           </>}
         {context?.type === "1" && 
         <>
           <Selecter link={"/seeker/dashboard"} current={current===0?true:false} name="HOME" />
           <Selecter link={"/seeker/joblist"} current={current===1?true:false} name="SEARCH JOB" />
-          <Selecter link={"/seeker/profile"} current={current===2?true:false} name="PROFILE" />
           </>}
       </div>
     </div>

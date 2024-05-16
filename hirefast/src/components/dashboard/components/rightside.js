@@ -42,7 +42,7 @@ export default function RightSide({ right }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) window.location.href = "/login";
+        if (data.success) window.location.href = process.env.REACT_APP_URL;
       })
       .catch((err) => console.log(err))
       .finally(() => setMainLoading(false));
@@ -85,19 +85,19 @@ export default function RightSide({ right }) {
                   />
                 )}
               </span>
-              <span className="w-full max-h-20 text-[100%] scroll overflow-y-auto flex justify-end md:text-center text-right">
+              <span className="w-full max-h-20 text-[100%] scroll overflow-x-auto flex justify-end md:text-center text-right">
                 {user?.name}
               </span>
             </div>
           </div>
           {parseInt(user?.type) === 0 && (
             <div className="flex w-full items-center h-full p-2 justify-between">
-              <span className="w-full flex justify-start md:text-center text-right text-[100%] scroll overflow-y-auto">
+              <span className="w-full flex justify-start md:text-center text-right text-[100%] scroll overflow-x-auto">
                 {user?.email}
               </span>
             </div>
           )}
-          <div className="w-full items-center h-full p-2 border-2 rounded-md bg-zinc-50 border-dashed justify-between flex">
+          <div className="w-full overflow-x-auto scroll items-center h-full p-2 border-2 rounded-md bg-zinc-50 border-dashed justify-between flex">
             {user?.info}
           </div>
         </div>
