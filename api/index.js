@@ -13,7 +13,7 @@ app.use(
 		credentials: true,
 	})
 );
-app.options('*', cors())
+app.options('*', cors());
 
 app.use(fileUpload());
 app.use(express.json());
