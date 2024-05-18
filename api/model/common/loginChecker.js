@@ -17,12 +17,18 @@ const loginChecker = async (password, email, role) => {
     const query = await pool.query(`SELECT * FROM ${table} WHERE email = $1`, [
       email,
     ]);
-    if (query.rowCount != 1) return {success : false};
+    if (query.rowCount != 1) return { success: false };
     const db_password = query.rows[0].password;
     const com = await compare(db_password, password);
-    return {success : com, id : query.rows[0].id};
+    if (com) {
+      const query = await pool.query(
+        `UPDATE ${table} SET loggedin = $1 WHERE email = $2`,
+        [1, email]
+      );
+    }
+    return { success: com, id: query.rows[0].id };
   } catch (err) {
-    return {success : false};
+    return { success: false };
   }
 };
 

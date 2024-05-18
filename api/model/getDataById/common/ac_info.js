@@ -6,6 +6,7 @@ const ac_info = async (id, role) => {
   try {
     const query = await pool.query(`select * from ${table} where id = ${id}`);
     if (query.rowCount != 1) return { success: false };
+    if (!query.rows[0].loggedin) return {success: false};
     return { success: true, ...query.rows[0] };
   } catch (err) {
     return { success: false };
