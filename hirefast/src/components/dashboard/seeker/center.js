@@ -33,7 +33,7 @@ export default function SeekerDashboard() {
     else ref.current.scrollLeft -= width;
   };
   return (
-    <div className="w-full h-full font-[Arial,sans-serif] overflow-hidden overflow-y-auto scroll gap-5 flex flex-col p-3 lg:p-7 lg:rounded-l-[3rem] bg-white">
+    <div className="w-full flex-1 h-full font-[Arial,sans-serif] overflow-hidden overflow-y-auto scroll gap-5 flex flex-col p-3 lg:p-7 lg:rounded-l-[3rem] bg-white">
       {msg}
       {(loader && handler) && 
       <div className="absolute flex justify-center w-full h-full items-center z-50 left-0 top-0 bottom-0 right-0 bg-black bg-opacity-50">

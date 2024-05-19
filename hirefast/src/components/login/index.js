@@ -9,6 +9,7 @@ export default function Login() {
   const [role, setRole] = useState("owner");
   const [msg, setMsg] = useState();
   const [submit, setSubmit] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { state } = useLocation();
 
   const submitHandler = (e) => {
@@ -23,6 +24,7 @@ export default function Login() {
   useEffect(() => {
     if (submit !== null) {
       setMsg();
+      setLoading(true);
       fetch(`${process.env.REACT_APP_ORIGIN}/${role}/login`, {
         method: "POST",
         mode: "cors",
@@ -40,9 +42,7 @@ export default function Login() {
         .then((res) => {
           if (res.success === true) {
             const func = () =>
-              (window.location.href =
-                state?.path ||
-                "/" + role + "/dashboard");
+              (window.location.href = state?.path || "/" + role + "/dashboard");
             setMsg(
               <div className="relative bg-green-100 rounded-md border-2 border-green-700 font-semibold text-slate-800 px-3 py-1 font-sans">
                 Successfully logged in.
@@ -75,6 +75,9 @@ export default function Login() {
           <div className="p-2 py-1 w-full flex justify-center items-center text-center bg-red-50 text-red-700 rounded-xl border-2 border-rose-700">
             Email or password is wrong.
           </div>;
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   }, [submit]);
@@ -140,9 +143,20 @@ export default function Login() {
                 />
               </div>
               <div className="w-full flex justify-center">
-                <button className="button" onClick={submitHandler}>
-                  Login
-                </button>
+                {!loading && (
+                  <button className="button" onClick={submitHandler}>
+                    Login
+                  </button>
+                )}
+                {loading && (
+                  <div>
+                    <img
+                      src="/assets/images/loader-icon.svg"
+                      alt="loader"
+                      className="animate-spin h-10 w-10"
+                    />
+                  </div>
+                )}
               </div>
             </div>
             <div className=" hidden italic font-thin text-[120%]">Or</div>

@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 const insertIntoSeeker = async (body, dp, resume) => {
   const { name, email, remote, desc, address, country } = body;
+  console.log("Body: ",body)
   const password = bcrypt.hashSync(body.password, 10);
   try{
     const query = await pool.query(

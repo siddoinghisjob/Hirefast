@@ -12,23 +12,19 @@ export default function RightSide({ right }) {
   useEffect(() => {
     setUser((user) => context?.state);
   }, []);
-  if (right === true) {
-    const menuOpener = () => {
-      ref.current.classList.remove("hidden");
-      ref.current.classList.add("flex");
-    };
-    menuOpener();
-  } else if (right === false) {
-    const menuCloser = () => {
-      ref.current.classList.add("exitRight");
-      setTimeout(() => {
-        ref.current.classList.remove("exitRight");
-        ref.current.classList.remove("flex");
-        ref.current.classList.add("hidden");
-      }, 1200);
-    };
-    menuCloser();
-  }
+  const menuOpener = () => {
+    ref?.current?.classList.remove("hidden");
+    ref?.current?.classList.add("flex");
+  };
+  const menuCloser = () => {
+    ref?.current?.classList.add("exitRight");
+    setTimeout(() => {
+      ref?.current?.classList.remove("exitRight");
+      ref?.current?.classList.remove("flex");
+      ref?.current?.classList.add("hidden");
+    }, 1200);
+  };
+  
   const logoutHandler = () => {
     setMainLoading(true);
     fetch(process.env.REACT_APP_ORIGIN+"/logout", {
@@ -47,6 +43,12 @@ export default function RightSide({ right }) {
       .catch((err) => console.log(err))
       .finally(() => setMainLoading(false));
   };
+
+  if(right){
+    menuOpener();
+  }else{
+    menuCloser();
+  }
 
   return (
     <div
@@ -77,9 +79,10 @@ export default function RightSide({ right }) {
                 {!user?.dp && (
                   <FaUserAlt className="h-7 w-7 rounded-full border-2" />
                 )}
+
                 {user?.dp && (
                   <img
-                    src="/assets/images/form-bg.jpg"
+                    src={process.env.REACT_APP_ORIGIN+user?.dp}
                     alt={user?.name}
                     className="h-7 w-7 rounded border-2"
                   />

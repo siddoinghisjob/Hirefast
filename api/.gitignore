@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# static files
+/public/files/dps/**/*
+/public/files/resumes/**/*
+
 # production
 /build
 
